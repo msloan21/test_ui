@@ -1,0 +1,10 @@
+---
+agency_name: USCIS
+project_name: Accounts Public
+service_name: ui
+package_name: uscis-accounts-public-ui
+
+quality_gates:
+  npm_audit:
+    enabled: true
+    fail_on: critical

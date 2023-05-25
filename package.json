@@ -1,0 +1,106 @@
+{
+	"name": "<<[(ds "config").package_name]>>",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@trussworks/react-uswds": "^4.0.0",
+		"aws-amplify": "^5.0.11",
+		"country-state-city": "^3.1.2",
+		"formik": "^2.2.9",
+		"leaflet": "^1.9.3",
+		"lodash": "^4.17.21",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-leaflet": "^4.2.0",
+		"react-router-dom": "^6.4.5",
+		"yup": "^0.32.11"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"test-once": "cross-env CI=true react-scripts test",
+		"test-cov": "cross-env CI=true react-scripts test --coverage",
+		"eject": "react-scripts eject",
+		"sonarqube": "sonarqube-scanner",
+		"lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+		"lint:fix": "tsc --noEmit && eslint --fix src/**/*.ts{,x}",
+		"cy:test": "cypress run",
+		"cy:run:local": "cross-env REACT_APP_CYPRESS_BASE_URL=http://localhost:3000 cypress run",
+		"cy:open:local": "cross-env REACT_APP_CYPRESS_BASE_URL=http://localhost:3000 cypress open",
+		"prepare": "husky install"
+	},
+	"eslintConfig": {
+		"plugins": [
+			"sonarjs"
+		],
+		"extends": [
+			"react-app",
+			"react-app/jest",
+			"plugin:sonarjs/recommended"
+		],
+		"rules": {
+			"no-unused-vars": "off"
+		}
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"npx prettier --write",
+			"npx eslint --fix"
+		]
+	},
+	"jest": {
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx,ts,tsx}",
+			"!src/index.tsx",
+			"!src/setupProxy.js",
+			"!src/**/*.d.ts"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@badeball/cypress-cucumber-preprocessor": "^15.1.2",
+		"@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+		"@shelex/cypress-allure-plugin": "^2.34.0",
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^14.4.3",
+		"@types/jest": "^29.2.4",
+		"@types/leaflet": "^1.9.0",
+		"@types/lodash": "^4.14.191",
+		"@types/node": "^18.11.18",
+		"@types/react": "^18.0.27",
+		"@types/react-dom": "^18.0.9",
+		"@typescript-eslint/eslint-plugin": "^5.50.0",
+		"@typescript-eslint/parser": "^5.50.0",
+		"axe-core": "^4.6.3",
+		"cross-env": "^7.0.3",
+		"cypress": "^12.3.0",
+		"cypress-axe": "^1.3.0",
+		"esbuild": "^0.16.4",
+		"eslint": "^8.33.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-sonarjs": "^0.18.0",
+		"http-proxy-middleware": "^2.0.6",
+		"husky": "^6.0.0",
+		"lint-staged": "^13.1.1",
+		"multiple-cucumber-html-reporter": "^3.0.1",
+		"prettier": "^2.8.1",
+		"pretty-quick": "^3.1.3",
+		"react-scripts": "5.0.1",
+		"sonarqube-scanner": "^3.0.0",
+		"typescript": "^4.9.4"
+	}
+}
